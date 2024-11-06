@@ -5,8 +5,11 @@ import { NextIntlClientProvider, useMessages } from "next-intl";
 import { locales } from "@/navigation";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/navbar";
-import { ThemeProvider } from "@/components/theme-provider";
 import ThemeDataProvider from "@/context/theme-data-provider";
+import { AppSidebar } from "@/components/app-sidebar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes";
+import Providers from "./providers";
 const vazirFont = localFont({
   src: "../fonts/Vazirmatn[wght].woff2",
 });
@@ -32,19 +35,18 @@ export default function RootLayout({
   return (
     <html lang={locale}>
       <NextIntlClientProvider locale={locale} messages={messages}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <Providers>
           <body className={`${vazirFont.className} antialiase`}>
-            <ThemeDataProvider>
-              <Navbar locale={locale} />
-              {children}
-            </ThemeDataProvider>
+            <Navbar locale={locale} />
+            <SidebarProvider className={locale === "fa" ? "rtl" : ""}>
+              <AppSidebar />
+              <main className="w-full h-full">
+                <SidebarTrigger />
+                {children}
+              </main>
+            </SidebarProvider>
           </body>
-        </ThemeProvider>
+        </Providers>
       </NextIntlClientProvider>
     </html>
   );

@@ -39,6 +39,14 @@ body {
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
   .dark {
     --background: 240 10% 3.9%;
@@ -65,6 +73,14 @@ body {
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -75,4 +91,56 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.rtl {
+  direction: rtl;
+}
+
+.clock {
+  position: relative;
+  width: 40%;
+  height: 40%;
+  border: 4px solid var(--tw-color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock-hand {
+  position: absolute;
+  transform-origin: bottom center;
+  left: 50%;
+  top: 50%;
+  margin-left: -0.5px;
+}
+
+.clock-hand.hours {
+  width: 3px;
+  height: 3rem;
+  margin-top: -3rem;
+}
+
+.clock-hand.minutes {
+  width: 3px;
+  height: 4rem;
+  margin-top: -4rem;
+}
+
+.clock-hand.seconds {
+  width: 1px;
+  height: 4.5rem;
+  margin-top: -4.5rem;
+  background-color: red;
+}
+
+.center-dot {
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }

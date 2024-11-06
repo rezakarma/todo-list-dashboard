@@ -1,1 +1,1 @@
-{"default":{"test":"test"}}
+{"sidebar":{"dashboard":"Dashboard","settings":"Settigns","todo-list":"Todo list"},"todoList":{"allTodos":"All todos","allTodosDescription":"the count of all todos","done":"Done","doneDescription":"the count of all done todos","inProgress":"In Progress","inProgressDescription":"the count of all in progress todos","notDone":"Not Done","notDoneDescription":"the count of all not done todos"},"themeColor":{"blue":"Blue","green":"Green","orange":"Orange","rose":"Rose","zinc":"Zinc"},"default":{"test":"test"}}
