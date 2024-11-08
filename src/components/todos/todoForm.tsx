@@ -28,13 +28,13 @@ const TodoForm: React.FC<FormValue> = ({ value: todo }) => {
   const dispatch = useAppDispatch();
 
   function isTodo(value: unknown): value is Todo {
-  return (
-    typeof value === "object" &&
-    value !== null && // Ensure value is not null
-    "title" in value &&
-    "status" in value
-  );
-}
+    return (
+      typeof value === "object" &&
+      value !== null && // Ensure value is not null
+      "title" in value &&
+      "status" in value
+    );
+  }
   const form = useForm<z.infer<typeof todoSchema>>({
     resolver: zodResolver(todoSchema),
     defaultValues: {
@@ -49,6 +49,7 @@ const TodoForm: React.FC<FormValue> = ({ value: todo }) => {
       } else {
         await addTodo({ status: "notDone", ...values });
       }
+      form.setValue("title", "");
       dispatch(getAllTodos());
       toast.success(t("save"), {
         className: "bg-green-100",
