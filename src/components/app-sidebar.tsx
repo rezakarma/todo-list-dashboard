@@ -27,12 +27,12 @@ const items = [
   },
   {
     title: "todo-list",
-    url: "#",
+    url: "/todos",
     icon: ListTodo,
   },
   {
     title: "settings",
-    url: "#",
+    url: "/settings",
     icon: Settings,
   },
 ];
@@ -60,7 +60,6 @@ const sidebarItemStyle = (
   return { buttonStyle, iconStyle };
 };
 
-
 export function AppSidebar() {
   const t = useTranslations("sidebar");
   const { state } = useSidebar();
@@ -68,10 +67,9 @@ export function AppSidebar() {
   const locale = useLocale();
   const currentPath = usePathname();
 
-
   return (
     <Sidebar
-      className="h-[90%] !self-end text-3xl"
+      className="h-full pt-5 text-3xl"
       side={locale === "fa" ? "right" : "left"}
       collapsible={"icon"}
     >

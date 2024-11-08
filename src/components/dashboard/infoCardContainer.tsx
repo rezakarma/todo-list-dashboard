@@ -8,7 +8,7 @@ import {
   LayoutList,
   ListTodo,
 } from "lucide-react";
-import { DesktopIcon } from "@radix-ui/react-icons";
+import { useAppSelector } from "@/hooks/useRedux";
 
 const cartItems = [
   {
@@ -39,37 +39,14 @@ const cartItems = [
 
 const InfoCardContainer = () => {
   const t = useTranslations("todoList");
+  const todosInfo = useAppSelector((state) => state.todos.todosInfo);
   return (
-    <div className="flex gap-5 justify-between w-full">
-      {/* <InfoCard
-        Icon={CheckCheck}
-        count="10"
-        description="SDFS"
-        title={t("allTodos")}
-      />
-      <InfoCard
-        Icon={CheckCheck}
-        count="10"
-        description="SDFS"
-        title={t("done")}
-      />
-      <InfoCard
-        Icon={CheckCheck}
-        count="10"
-        description="SDFS"
-        title={t("inProgress")}
-      />
-      <InfoCard
-        Icon={CheckCheck}
-        count="10"
-        description="SDFS"
-        title={t("notDone")}
-      /> */}
+    <div className="flex gap-5 justify-between w-full h-[25%]">
       {cartItems.map((item, i) => (
         <InfoCard
           key={i}
           Icon={item.Icon}
-          count={item.count}
+          count={todosInfo[item.title as keyof typeof todosInfo].toString()}
           description={t(item.description)}
           title={t(item.title)}
         />

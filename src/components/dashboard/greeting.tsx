@@ -1,27 +1,28 @@
 "use client";
 import React from "react";
 import { Card, CardContent } from "../ui/card";
+import { useTranslations } from "next-intl";
 
 interface GreetingProps {
   time?: string; // Optional prop for the time
 }
 
 const Greeting: React.FC<GreetingProps> = ({ time }) => {
-  // Function to determine the greeting message based on the provided time
+  const t = useTranslations("greeting");
   const getGreetingMessage = (date: Date): string => {
     const hours = date.getHours();
     if (hours < 5) {
-      return "Good Early Morning! The world is quiet and peaceful.";
+      return t("goodErly");
     } else if (hours < 12) {
-      return "Good Morning! Rise and shine! Have a great day ahead!";
+      return t("goodMorning");
     } else if (hours === 12) {
-      return "Good Noon! It's time for a well-deserved lunch break!";
+      return t("goodNoon");
     } else if (hours < 17) {
-      return "Good Afternoon! Hope you're having a productive day!";
+      return t("goodAfternoon");
     } else if (hours < 21) {
-      return "Good Evening! Time to relax and unwind after a long day!";
+      return t("goodEvening");
     } else {
-      return "Good Late Night! It's time to wind down and get some rest.";
+      return t("goodNight");
     }
   };
 
@@ -29,17 +30,17 @@ const Greeting: React.FC<GreetingProps> = ({ time }) => {
   const getSuggestion = (date: Date): string => {
     const hours = date.getHours();
     if (hours < 5) {
-      return "Consider enjoying a warm drink and some quiet time.";
+      return t("elryMessage");
     } else if (hours < 12) {
-      return "Don't forget to have a healthy breakfast!";
+      return t("morningMessage");
     } else if (hours === 12) {
-      return "How about treating yourself to a nice lunch?";
+      return t("noonMessage");
     } else if (hours < 17) {
-      return "How about grabbing some coffee or a snack?";
+      return t("afternoonMessage");
     } else if (hours < 21) {
-      return "Maybe it's time for a nice dinner or some family time.";
+      return t("eveningMessage");
     } else {
-      return "Perhaps it's time for a good book or some relaxation.";
+      return t("nightMessage");
     }
   };
 
@@ -47,15 +48,11 @@ const Greeting: React.FC<GreetingProps> = ({ time }) => {
   const currentTime = time ? new Date(time) : new Date();
 
   return (
-    <Card className="w-fit flex justify-center items-center group hover:bg-primary hover:text-secondary transition-all duration-300 ease-in-out">
+    <Card className="w-full h-1/2 flex justify-center items-center group hover:bg-primary hover:text-secondary transition-all duration-300 ease-in-out text-primary">
       <CardContent className="pt-8">
-        <div className="text-center">
-          <h1 className="text-2xl">
-            {getGreetingMessage(currentTime)}
-          </h1>
-          <p className="text-lg">
-            {getSuggestion(currentTime)}
-          </p>
+        <div className="text-center  gorup-hover:!text-secondary">
+          <h1 className="text-2xl">{getGreetingMessage(currentTime)}</h1>
+          <p className="text-lg">{getSuggestion(currentTime)}</p>
         </div>
       </CardContent>
     </Card>

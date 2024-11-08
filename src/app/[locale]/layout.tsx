@@ -5,11 +5,11 @@ import { NextIntlClientProvider, useMessages } from "next-intl";
 import { locales } from "@/navigation";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/navbar";
-import ThemeDataProvider from "@/context/theme-data-provider";
+import { Toaster } from "sonner";
 import { AppSidebar } from "@/components/app-sidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes";
 import Providers from "./providers";
+import { Toaster as ShadCnToaster} from "@/components/ui/toaster"
 const vazirFont = localFont({
   src: "../fonts/Vazirmatn[wght].woff2",
 });
@@ -36,7 +36,7 @@ export default function RootLayout({
     <html lang={locale}>
       <NextIntlClientProvider locale={locale} messages={messages}>
         <Providers>
-          <body className={`${vazirFont.className} antialiase`}>
+          <body className={`${vazirFont.className} antialiase overflow-hidden`}>
             <Navbar locale={locale} />
             <SidebarProvider className={locale === "fa" ? "rtl" : ""}>
               <AppSidebar />
@@ -45,6 +45,8 @@ export default function RootLayout({
                 {children}
               </main>
             </SidebarProvider>
+            <Toaster />
+            <ShadCnToaster/>
           </body>
         </Providers>
       </NextIntlClientProvider>

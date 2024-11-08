@@ -1,9 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import {
-  Card,
-  CardContent,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 interface AnalogClockProps {
   initialTime?: string; // Optional prop for the initial time
 }
