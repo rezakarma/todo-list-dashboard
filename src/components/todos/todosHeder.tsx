@@ -14,14 +14,14 @@ interface TodosHeaderProps {
 const TodosHeader: React.FC<TodosHeaderProps> = ({ search, setSearch }) => {
   const t = useTranslations("todos");
   return (
-    <div className="flex w-full max-w-md items-center space-x-2">
+    <div className="flex w-full flex-col sm:flex-row  sm:max-w-md px-4 md:max-w-lg lg:max-w-lg items-center gap-4">
       <Input
         type="text"
         placeholder={t("search") + "..."}
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
-      <div className="flex  gap-2">
+      <div className="flex gap-2 px-2 sm:px-0">
         <Button type="submit">
           {t("search")}
           <Search />
