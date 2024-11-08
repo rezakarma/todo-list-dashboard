@@ -1,7 +1,6 @@
 "use client";
 import ClocksContainer from "@/components/clock/clocksContainer";
 import InfoCardContainer from "@/components/dashboard/infoCardContainer";
-import { useTranslations } from "next-intl";
 import WeatherContainer from "@/components/weather/weatherContainer";
 import { useQueryClient } from "@tanstack/react-query";
 

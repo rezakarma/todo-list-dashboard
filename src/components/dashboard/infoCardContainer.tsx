@@ -2,7 +2,6 @@
 import { useTranslations } from "next-intl";
 import InfoCard from "./infoCarf";
 import {
-  CheckCheck,
   CircleCheck,
   Hourglass,
   LayoutList,

@@ -15,7 +15,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { useTranslations } from "next-intl";
 import {
-  loadSettingsFromLocalStorage,
   saveSettingsToLocalStorage,
 } from "@/lib/localStorage";
 import { useTransition } from "react";
@@ -25,7 +24,7 @@ import { useAppSelector } from "@/hooks/useRedux";
 import { settingSliceAction } from "@/store/setting-slice";
 import { useDispatch } from "react-redux";
 import { FormValue } from "@/types/settings.types";
-const SettingNameForm: React.FC<FormValue> = ({ value }) => {
+const SettingNameForm: React.FC<FormValue> = () => {
   const t = useTranslations("settings");
   const [isPendingTransition, startTransition] = useTransition();
   const dispatch = useDispatch();

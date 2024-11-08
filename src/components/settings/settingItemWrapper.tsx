@@ -1,7 +1,4 @@
 "use client";
-
-import { Label } from "recharts";
-
 type SettingItemWrapperProps = {
   children: React.ReactNode;
   label: string;

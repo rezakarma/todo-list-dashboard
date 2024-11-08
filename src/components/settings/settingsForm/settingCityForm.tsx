@@ -21,20 +21,19 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { useEffect, useMemo, useState, useTransition } from "react";
+import { useMemo, useState, useTransition } from "react";
 import { city, FormValue } from "@/types/settings.types";
 import { FixedSizeList as List } from "react-window";
 import { useQuery } from "@tanstack/react-query";
 import { fetchCities } from "@/lib/fetchData";
 import useDebounce from "@/hooks/useDebounce";
 import {
-  loadSettingsFromLocalStorage,
   saveSettingsToLocalStorage,
 } from "@/lib/localStorage";
 import { toast } from "sonner";
 import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 import { settingSliceAction } from "@/store/setting-slice";
-const SettingCityForm: React.FC<FormValue> = ({value}) => {
+const SettingCityForm: React.FC<FormValue> = () => {
   const [search, setSearch] = useState<string | undefined>();
   const debouncedSearch = useDebounce(search);
   const t = useTranslations("settings");
@@ -42,7 +41,6 @@ const SettingCityForm: React.FC<FormValue> = ({value}) => {
   const dispatch = useAppDispatch()
   const {
     isPending,
-    isError,
     data: citiesData,
   } = useQuery({
     queryKey: ["city"],

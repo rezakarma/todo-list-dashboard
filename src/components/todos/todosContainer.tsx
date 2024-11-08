@@ -5,21 +5,12 @@ import TodoList from "./todoList";
 import TodosHeader from "./todosHeder";
 import { useEffect, useMemo, useState } from "react";
 import { getAllTodos } from "@/store/todos-slice";
-import { TodoListType } from "@/types/store.types";
 import useDebounce from "@/hooks/useDebounce";
 import { Todo } from "@/lib/db";
 
 const TodosContainer = () => {
   const [search, setSearch] = useState<string>('');
   const debouncedSearch = useDebounce(search);
-  // const [todos, setTodos] = useState<TodoListType>();
-  //   useEffect(() => {
-  //     const getAllTodos = async () => {
-  //       const todos = await getTodos();
-  //       setTodos(todos);
-  //     };
-  //     getAllTodos();
-  //   }, []);
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(getAllTodos());

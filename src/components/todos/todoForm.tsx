@@ -26,14 +26,15 @@ const TodoForm: React.FC<FormValue> = ({ value: todo }) => {
   const [isPendingTransition, startTransition] = useTransition();
   const t = useTranslations("todos");
   const dispatch = useAppDispatch();
-  function isTodo(value: any): value is Todo {
-    return (
-      value &&
-      typeof value === "object" &&
-      "title" in value &&
-      "status" in value
-    );
-  }
+
+  function isTodo(value: unknown): value is Todo {
+  return (
+    typeof value === "object" &&
+    value !== null && // Ensure value is not null
+    "title" in value &&
+    "status" in value
+  );
+}
   const form = useForm<z.infer<typeof todoSchema>>({
     resolver: zodResolver(todoSchema),
     defaultValues: {

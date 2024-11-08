@@ -2,22 +2,17 @@
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarGroup,
   SidebarGroupContent,
-  SidebarGroupLabel,
-  SidebarHeader,
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-// import { sidebarItemStyle } from "@/lib/sideBarItemStyle";
 import { isActive } from "@/lib/utils";
 import { Link, usePathname } from "@/navigation";
 import { LayoutDashboard, ListTodo, Settings } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { useEffect } from "react";
 
 const items = [
   {

@@ -1,4 +1,3 @@
-import WeatherCard from "../weather/weatherCard";
 import { Card, CardContent } from "../ui/card";
 import Chart from "./chart";
 import { useAppSelector } from "@/hooks/useRedux";

@@ -6,7 +6,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Button } from "../ui/button";
 import { SettingItemSheetProps } from "@/types/settings.types";
 
 const SettingItemSheet: React.FC<SettingItemSheetProps> = ({

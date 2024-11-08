@@ -1,19 +1,15 @@
 "use client";
 import { Card, CardContent } from "../ui/card";
-
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuRadioGroup,
   DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { EllipsisVertical, Pencil, Trash2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -93,7 +89,7 @@ const TodoItem: React.FC<Todo> = ({ status, title, id }) => {
                 >
                   {statusList.map((item) => {
                     return (
-                      <DropdownMenuRadioItem value={item}>
+                      <DropdownMenuRadioItem key={item} value={item}>
                         {t(item)}
                       </DropdownMenuRadioItem>
                     );

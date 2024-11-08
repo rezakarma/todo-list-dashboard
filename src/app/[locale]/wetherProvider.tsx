@@ -2,6 +2,7 @@
 
 import { useAppDispatch, useAppSelector } from "@/hooks/useRedux";
 import { fetchWeatherData } from "@/lib/fetchData";
+import { getAllTodos } from "@/store/todos-slice";
 import { weatherSliceAction } from "@/store/weather-slice";
 import { useQuery } from "@tanstack/react-query";
 import { useEffect } from "react";
@@ -20,6 +21,7 @@ const WetherProvider = ({ children }: { children: React.ReactNode }) => {
       dispatch(weatherSliceAction.setWeather(data));
     }
   }, [data]);
+  dispatch(getAllTodos());
   return <div>{children}</div>;
 };
 

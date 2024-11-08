@@ -1,11 +1,6 @@
 "use client";
-
-import { UserPen, UserPlus } from "lucide-react";
-import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Label } from "@/components/ui/label";
-import SettingItemSheet from "./settingItemSheet";
-import SettingNameForm from "./settingsForm/settingNameForm";
 
 const SettingItem = ({
   value,
