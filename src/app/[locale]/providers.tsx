@@ -32,7 +32,7 @@ const Providers = ({ children }: { children: React.ReactNode }) => {
       });
     } else {
       shadToast({
-        title: t("welcome"),
+        title: `${t("welcome")} ${name}`,
         description: t("welcomeDescription"),
         duration: 5000,
         className: "bg-green-100",
